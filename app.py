@@ -6,12 +6,18 @@ def load_news(filename):
     """Baca file news_data.csv ke list of dict"""
     # TODO: buka file CSV (filename) dan baca dengan csv.DictReader
     # kembalikan hasilnya dalam bentuk list
-    pass
+    news = open(filename, 'r')
+    reader = csv.DictReader(news)
+    return list(reader)
+# print(load_news('news_data.csv'))
 
 def load_comments(filename):
     """Baca file comment_news.csv ke list of dict"""
     # TODO: sama seperti load_news tapi untuk file komentar
-    pass
+    komentar = open(filename, 'r')
+    reader = csv.DictReader(komentar)
+    return list(reader)
+print(load_news('comment_news.csv'))
 
 # --- Fungsi untuk memproses data ---
 def process_data(news_list, comments_list):
@@ -20,8 +26,15 @@ def process_data(news_list, comments_list):
     hitung jumlah komentar & rata-rata rating.
     Hasilnya list of dict.
     """
+
     # TODO: Buat dictionary untuk kumpulkan komentar per idBerita
     comments_per_news = {}
+    for i in range(comments_list):
+        for row in i:
+            if row not in comments_list:
+                pass
+
+
 
     # TODO: isi comments_per_news dari comments_list
     # hint: per idBerita simpan ratings (list) dan count
@@ -56,6 +69,7 @@ def main():
 
     # TODO: baca data CSV
     news_data = []     # ganti dengan pemanggilan load_news
+    # load_news('news_data.csv')
     comment_data = []  # ganti dengan pemanggilan load_comments
 
     # TODO: proses data
@@ -65,5 +79,5 @@ def main():
     # hint: gunakan st.table(hasil)
     pass
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
